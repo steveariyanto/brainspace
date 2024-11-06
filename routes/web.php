@@ -2,40 +2,29 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
-// Home route (or welcome page)
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); // pastikan ini mengarah ke file welcome.blade.php
 });
 
-// Rute untuk login dengan middleware CORS
-Route::middleware(['cors'])->get('/login', [AuthenticatedSessionController::class, 'showLoginForm'])->name('login'); // Display login form
-Route::middleware(['cors'])->post('/login', [AuthenticatedSessionController::class, 'login'])->name('login.post'); // Process login
+// Rute untuk login
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
-// Route untuk logout dengan middleware CORS
-Route::middleware(['cors'])->post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('logout'); // Handle logout
-
-// Route untuk menampilkan halaman registrasi dengan middleware CORS
-Route::middleware(['cors'])->get('/register', [RegisteredUserController::class, 'showRegistrationForm'])->name('register');
-
-// Route untuk memproses registrasi dengan middleware CORS
-Route::middleware(['cors'])->post('/register', [RegisteredUserController::class, 'store'])->name('register.post');
-
-// Route ke dashboard dengan middleware 'auth' dan 'cors'
-Route::middleware(['auth', 'cors'])->get('/dashboard', function () {
+// Rute untuk dashboard (hanya bisa diakses setelah login)
+Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Rute untuk profil dengan middleware 'auth' dan 'cors'
-Route::middleware(['auth', 'cors'])->group(function () {
+// Rute untuk profil (hanya bisa diakses setelah login)
+Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Include authentication routes
 require __DIR__.'/auth.php';
 
 
