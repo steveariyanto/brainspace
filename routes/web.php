@@ -37,3 +37,5 @@ Route::middleware(['auth', 'cors'])->group(function () {
 
 // Include authentication routes
 require __DIR__.'/auth.php';
+
+
