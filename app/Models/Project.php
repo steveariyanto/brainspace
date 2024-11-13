@@ -29,7 +29,7 @@ class Project extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'categories_id', 'categories_id');
+        return $this->belongsTo(Category::class, 'categories_id', 'id');
     }
 
     public function files()

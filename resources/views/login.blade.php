@@ -5,27 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- for icons -->
     <style>
         body {
-            background-color: #AECBD6;
-        }
-
-        .password-wrapper {
-            position: relative;
-        }
-
-        .password-wrapper .form-control {
-            padding-right: 40px; /* Add space for the icon */
-        }
-
-        .password-wrapper i {
-            position: absolute;
-            top: 75%; /* Move the icon closer to the bottom of the input field */
-            transform: translateY(-50%);
-            right: 15px;
-            cursor: pointer;
-            font-size: 16px; /* Increase the font size of the icon */
+            background-color: #AECBD6; /* Set the background color */
         }
     </style>
 </head>
@@ -41,21 +24,37 @@
                 <label for="email" class="form-label fw-bold text-black">Email</label>
                 <input type="email" class="form-control bg-light border-0" id="email" name="email" placeholder="Email" required>
             </div>
-            <div class="mb-3 password-wrapper">
+            <div class="mb-3">
+                <label for="username" class="form-label fw-bold text-black">Username</label>
+                <input type="text" class="form-control bg-light border-0" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="mb-3 position-relative">
                 <label for="password" class="form-label fw-bold text-black">Password</label>
                 <input type="password" class="form-control bg-light border-0" id="password" name="password" placeholder="Password" required>
-                <i class="fas fa-eye-slash"></i>
+                <i class="fas fa-eye-slash position-absolute top-50 end-0 translate-middle-y me-3" style="cursor: pointer;"></i>
+            </div>
+            <div class="mb-3 text-end">
+                <a href="{{ route('password.request') }}" class="text-decoration-none text-primary">Forgot Password?</a>
             </div>
             <button type="submit" class="btn btn-primary w-100">LOG IN</button>
             <div class="text-center mt-3">
-                <p class="text-muted">Don't have an account? <a href="/register" class="text-primary">Sign up here</a></p>
+                <p class="text-muted">Don't have an account? <a href="{{ route('register') }}" class="text-primary">Sign up here</a></p>
             </div>
         </form>
     </div>
 
+    <!-- Script to show success pop-up if registration was successful -->
+    @if (session('status'))
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                alert('{{ session('status') }}'); // Display a pop-up notification for successful registration
+            });
+        </script>
+    @endif
+
     <script>
         // Script to toggle password visibility
-        const togglePassword = document.querySelector('.password-wrapper i');
+        const togglePassword = document.querySelector('.fa-eye-slash');
         const password = document.querySelector('#password');
         togglePassword.addEventListener('click', function () {
             if (password.type === 'password') {

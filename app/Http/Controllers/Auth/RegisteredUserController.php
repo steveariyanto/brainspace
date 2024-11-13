@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
@@ -27,24 +25,33 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        // Validasi input
+        $validator = Validator::make($request->all(), [
+            'username' => 'required',
+            'email' => 'required|email|unique:users,email', // Validasi email dan unik
+            'password' => 'required|min:8', // Minimal 8 karakter untuk password
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        // Jika validasi gagal, kembalikan respons error
+        if ($validator->fails()) {
+            return redirect()->route('register')
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        event(new Registered($user));
+        // Buat user baru dan simpan ke database
+        $user = new User;
+        $user->name = $request->username;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password); // Hash password sebelum disimpan
+        $user->save();
 
+        // Login user yang baru terdaftar
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        // Redirect ke halaman home setelah login
+        return redirect()->route('home_after_login')->with('status', 'Registration successful');
     }
 }

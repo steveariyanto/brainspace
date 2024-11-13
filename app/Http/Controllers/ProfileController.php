@@ -16,7 +16,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        return view('profile.edit', [
+        return view('profile.ubah-profil', [
             'user' => $request->user(),
         ]);
     }
@@ -26,15 +26,17 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
+        $user->fill($request->validated());
 
+        // Check if the email has changed
         if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+            $user->email_verified_at = null; // Set email_verified_at to null if email changes
         }
 
-        $request->user()->save();
+        $user->save(); // Save the updated user information
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('ubah-profil')->with('status', 'profile-updated'); // Redirect back with a success message
     }
 
     /**
@@ -48,13 +50,13 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        Auth::logout();
+        Auth::logout(); // Log out the user
 
-        $user->delete();
+        $user->delete(); // Delete the user account
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $request->session()->invalidate(); // Invalidate the session
+        $request->session()->regenerateToken(); // Regenerate the CSRF token
 
-        return Redirect::to('/');
+        return Redirect::to('/'); // Redirect to the home page
     }
 }
