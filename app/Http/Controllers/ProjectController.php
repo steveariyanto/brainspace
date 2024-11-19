@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -10,7 +10,7 @@ use App\Models\Project;
 use App\Models\File;
 use App\Models\User;
 
-class ContentController extends Controller
+class ProjectController extends Controller
 {
     public function index() {
         $project = Project::with('category')->where('users_id', Auth::id())->get();
@@ -105,4 +105,4 @@ class ContentController extends Controller
 
         return redirect('/daftar-konten');
     }
-} -->
+}
