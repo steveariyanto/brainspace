@@ -5,7 +5,7 @@
 @section('content')
     @auth
     <div class="py-3 flex justify-between items-end">
-        <!-- Tombol Daftar Proyek yang mengarah ke daftar-konten dengan latar belakang biru -->
+        <!-- Tombol Daftar Proyek yang mengarah ke daftar-konten -->
         <a href="/daftar-konten" class="text-2xl font-semibold py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-400 duration-300">
             Daftar Proyek
         </a>
