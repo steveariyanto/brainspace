@@ -69,7 +69,6 @@ $category_id = (isset($project)) ? $project->category->id : null;
                             <option value="1">PowerPoint</option>
                             <option value="2">Paper</option>
                             <option value="3">Laporan Proyek</option>
-                            <option value="4">lainnya</option>
                         </select>
                     </div>
                     <div class="col-span-2">

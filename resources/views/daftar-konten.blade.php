@@ -93,7 +93,7 @@
                 <a href="#" class="text-red-500 hover:text-red-700 transition duration-200">
                     <i class="fas fa-trash"></i>
                 </a>
-                <a href="#" class="text-yellow-500 hover:text-yellow-700 transition duration-200 ml-3">
+                <a href="#" class="text-blue-500 hover:text-blue-700 transition duration-200 ml-3">
                     <i class="fas fa-pencil-alt"></i>
                 </a>
         </td>
