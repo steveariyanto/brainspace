@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -59,4 +59,4 @@ class ProfileController extends Controller
 
         return Redirect::to('/'); // Redirect to the home page
     }
-} -->
+}

@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -105,4 +105,4 @@ class ContentController extends Controller
 
         return redirect('/daftar-konten');
     }
-} -->
+}
