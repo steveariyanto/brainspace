@@ -11,8 +11,6 @@ class User extends Authenticatable
 
     protected $table = 'users'; // Pastikan ini sesuai dengan nama tabel
 
-    protected $primaryKey = 'users_id';
-
     protected $fillable = [
         'name',
         'users_email', // Ganti dengan 'users_email'

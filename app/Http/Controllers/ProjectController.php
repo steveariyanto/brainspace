@@ -13,7 +13,7 @@ use App\Models\User;
 class ProjectController extends Controller
 {
     public function index() {
-        $project = Project::with('category')->where('users_id', Auth::id())->get();
+        $project = Project::with('category')->where('user_id', Auth::id())->get();
         return view('daftar-konten')->with('project',$project);
     }
 
@@ -45,7 +45,7 @@ class ProjectController extends Controller
 
         // Buat project baru
         $project = new Project;
-        $project->users_id = $userId;
+        $project->user_id = $userId;
         $project->projects_title = $request->judul;
         $project->projects_description = $request->deskripsi;
         $project->categories_id = $request->kategori;
