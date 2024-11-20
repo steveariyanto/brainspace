@@ -11,12 +11,12 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->bigIncrements('id'); // Kunci utama
-            $table->unsignedBigInteger('user_id'); // ID pengguna yang terkait
+            $table->unsignedBigInteger('users_id'); // ID pengguna yang terkait
             $table->text('message'); // Pesan notifikasi
             $table->timestamps(); // Timestamp untuk created_at dan updated_at
 
             // Definisi kunci asing
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
