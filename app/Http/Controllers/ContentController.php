@@ -105,4 +105,8 @@ class ContentController extends Controller
 
         return redirect('/daftar-konten');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 85433e48590b73f778105767cd219aa3236c1dba
