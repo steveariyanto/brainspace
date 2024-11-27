@@ -1,4 +1,4 @@
-<nav class="flex h-[220px] fixed w-full z-10">
+<nav class="flex h-[220px] top-0 fixed w-full z-10">
     <div class="flex justify-center items-center w-[300px] p-4 bg-blue-400">
         <div class="flex flex-col gap-4 items-center">
             <i class="ph ph-user-circle text-[64px]"></i>

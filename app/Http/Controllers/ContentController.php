@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+
 use App\Models\Category;
 use App\Models\Project;
 use App\Models\File;
@@ -13,7 +15,7 @@ use App\Models\User;
 class ContentController extends Controller
 {
     public function index() {
-        $project = Project::with('category')->where('users_id', Auth::id())->get();
+        $project = Project::with(['category', 'file'])->where('users_id', Auth::id())->get();
         return view('daftar-konten')->with('project',$project);
     }
 
@@ -53,12 +55,11 @@ class ContentController extends Controller
 
         // Proses untuk menyimpan file
         if ($request->hasFile('proyek')) {
-            // Simpan file yang diunggah ke direktori 'projects'
-            $filePath = $request->file('proyek')->store('projects');
+            $path = Storage::disk("public")->put("proyek", $request->file("proyek"));
 
             // Buat file baru dan simpan dengan project_id
             $file = new File;
-            $file->file_path = $filePath;
+            $file->file_path = $path;
             $file->project_id = $project->projects_id; // Menyimpan ID proyek yang baru dibuat
             $file->save();
         }
@@ -105,8 +106,4 @@ class ContentController extends Controller
 
         return redirect('/daftar-konten');
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 85433e48590b73f778105767cd219aa3236c1dba

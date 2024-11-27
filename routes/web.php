@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController as AuthRegisteredUserController;
 use Illuminate\Support\Facades\Route;
@@ -28,6 +29,10 @@ Route::controller(ContentController::class)->middleware(['auth', 'verified'])->g
     Route::get('/hapus-konten/{id}', 'delete')->name('hapus.konten');
     Route::get('/edit-konten/{id}', 'edit')->name('edit.konten');
     Route::post('/update-konten/{id}', 'update')->name('update.konten');
+});
+
+Route::controller(NotificationController::class)->middleware(['auth', 'verified'])->group(function() {
+    Route::get('/notifikasi', 'index');
 });
 
 // Rute untuk profil (hanya bisa diakses setelah login)

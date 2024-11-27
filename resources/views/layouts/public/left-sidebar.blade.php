@@ -18,7 +18,7 @@
                     <a href="">Layanan</a>
                 </li>
                 <li class="decoration-1 underline">
-                    <a href="">Notifikasi</a>
+                    <a href="/notifikasi">Notifikasi</a>
                 </li>
             </ul>
         </div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Project extends Model
 {
@@ -22,6 +23,10 @@ class Project extends Model
         'projects_updated_at',
     ];
 
+    protected $appends = [
+        'project_link'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'users_id', 'users_id');
@@ -32,13 +37,17 @@ class Project extends Model
         return $this->belongsTo(Category::class, 'categories_id', 'id');
     }
 
-    public function files()
+    public function file()
     {
-        return $this->hasMany(File::class, 'projects_id', 'projects_id');
+        return $this->hasOne(File::class, 'project_id');
     }
 
     public function projectStatus()
     {
-        return $this->hasOne(ProjectStatus::class, 'projects_id', 'projects_id');
+        return $this->hasOne(ProjectStatus::class, 'project_id', 'id');
+    }
+
+    public function getProjectLinkAttribute() {
+        return ($this->file) ? url("/")."/storage/{$this->file->file_path}" : null;
     }
 }
