@@ -9,9 +9,11 @@
                 </div>
 
                 <div class="d-flex gap-1">
-                    <a href="/dashboard" class="bg-blue-600 rounded-full p-2 px-3 text-white ">
-                        Dashboard
-                    </a>
+                    @if(auth()->user()->role == "admin")
+                        <a href="/dashboard" class="bg-blue-600 rounded-full p-2 px-3 text-white ">
+                            Dashboard
+                        </a>
+                    @endif
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
