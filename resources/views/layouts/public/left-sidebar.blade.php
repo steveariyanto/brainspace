@@ -1,6 +1,6 @@
-<div class="fixed w-[300px] h-screen fixed pt-[220px] bg-gradient-to-b from-blue-400 to-blue-200 shadow-lg">
+<div class="fixed w-[300px] h-screen fixed pt-[220px] bg-blue-200 text-black">
     <div class="w-full">
-        <!-- menu utama --> 
+        <!-- menu utama -->
         <div class="flex flex-col">
             <a class="w-full py-4 px-8 flex items-center gap-4 hover:bg-blue-500 hover:text-white duration-300 bg-blue-300 text-gray-800 font-medium" href="">
             <i class="ph ph-monitor text-2xl"></i>
@@ -26,12 +26,12 @@
                 <a href="">Informasi</a>
                 </li>
                 <li class="flex items-center gap-2 text-blue-700 hover:text-blue-900 duration-200">
-                <i class="ph ph-globe text-xl"></i>   
+                <i class="ph ph-globe text-xl"></i>
                 <a href="">Layanan</a>
                 </li>
 
                 <li class="flex items-center gap-2 text-blue-700 hover:text-blue-900 duration-200">
-                <i class="ph ph-bell text-xl"></i>    
+                <i class="ph ph-bell text-xl"></i>
                 <a href="">Notifikasi</a>
 
                 </li>

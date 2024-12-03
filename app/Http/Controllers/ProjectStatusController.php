@@ -12,11 +12,10 @@ class ProjectStatusController extends Controller
      */
     public function index()
     {
-        $statuses = ProjectStatus::with('project') // Mengambil relasi project
-            ->orderBy('project_status_updated_at', 'desc') // Mengurutkan berdasarkan tanggal diperbarui
+        $statuses = ProjectStatus::orderBy('project_status.updated_at', 'desc') // Mengurutkan berdasarkan tanggal diperbarui
             ->get();
 
-        return view('project-status.index', compact('statuses'));
+        return view('admin.project-status.index', compact('statuses'));
     }
 
     /**

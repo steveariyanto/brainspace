@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProjectStatusController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProjectApprovalController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -40,11 +43,24 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    //Route untuk ke halaman home
+    Route::get("/dashboard", [DashboardController::class, "index"])->name('dashboard');
+
+    //Route untuk ke halaman project approval
+    Route::get("/project-approval", [ProjectApprovalController::class, "index"])->name('project_approval');
+
+    //Route untuk ke halaman project status
+    Route::get("/project-status", [ProjectStatusController::class, "index"])->name('project_status');
+
+    //Route untuk ke halaman category
+    Route::get("/category", [CategoryController::class, "index"])->name('project_status');
 });
 
 Route::get('/home', function () {
     return view('home');
 })->name('home_after_login');
+
 
 // Sertakan rute auth.php untuk autentikasi
 require __DIR__.'/auth.php';

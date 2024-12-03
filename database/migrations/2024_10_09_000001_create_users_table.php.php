@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
             $table->string('name'); // Nama pengguna
             $table->string('email')->unique(); // Email unik
             $table->string('password'); // Password pengguna
+            $table->enum("role", ['admin', 'user']);
             $table->timestamps(); // Timestamp untuk created_at dan updated_at
         });
 
@@ -24,5 +25,5 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
-    
+
 }

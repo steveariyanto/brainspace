@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all(); // Mengambil semua kategori
 
-        return view('categories.index', compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
