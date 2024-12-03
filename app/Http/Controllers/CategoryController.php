@@ -12,9 +12,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        if(auth()->user()->role != "admin") return redirect("/");
         $categories = Category::all(); // Mengambil semua kategori
 
-        return view('categories.index', compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 
     /**

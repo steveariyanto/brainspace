@@ -4,14 +4,17 @@
 
 @section('content')
     @auth
-<!--    <div class="py-3 flex justify-between items-end">
-       Tombol Daftar Proyek yang mengarah ke daftar-konten 
-        <a href="/daftar-konten" class="text-2xl font-semibold py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-400 duration-300">
-            Daftar Proyek
-        </a>
+        @if(auth()->user()->role == "user")
+            <div class="py-3 flex justify-between items-end">
+                <!-- Tombol Daftar Proyek yang mengarah ke daftar-konten -->
+                <a href="/daftar-konten" class="text-2xl font-semibold py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-400 duration-300">
+                    Daftar Proyek
+                </a>
 
-        <a href="/tambah-konten" class="rounded-md bg-blue-400 py-2 px-3 text-white hover:bg-blue-200 hover:text-black duration-300">Tambah Proyek Baru</a>
-    </div>
+                <a href="/tambah-konten" class="rounded-md bg-blue-400 py-2 px-3 text-white hover:bg-blue-200 hover:text-black duration-300">Tambah Proyek Baru</a>
+            </div>
+
+        @endif
     @endauth
 
     <div class="flex flex-col gap-5">
