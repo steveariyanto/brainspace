@@ -58,7 +58,7 @@
 </body>
 </html> -->
 
-<html>
+<!-- <html>
 <head>
     <title>Ubah Profil</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -140,6 +140,99 @@
         <p>steve.ariyanto@itbss.ac.id</p>
         <a href="{{ route('profile.ganti.password') }}" class="btn-custom">Ubah Password</a>
         <form action="{{ route('logout') }}" method="POST" style="margin-top: 20px;">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubah Profil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #eef2f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .profile-card {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        .profile-card .fa-user-circle {
+            font-size: 80px;
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
+        .profile-card h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        .profile-card p {
+            font-size: 14px;
+            color: #95a5a6;
+            margin-bottom: 25px;
+        }
+        .btn-custom {
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .btn-custom:hover {
+            background-color: #357ABD;
+            transform: scale(1.05);
+        }
+        form button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        form button:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <i class="fas fa-user-circle"></i>
+        <h2>steveariyanto</h2>
+        <p>steve.ariyanto@itbss.ac.id</p>
+        <a href="{{ route('profile.ganti.password') }}" class="btn-custom">Ubah Password</a>
+        <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit">Logout</button>
         </form>

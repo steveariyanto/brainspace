@@ -1,10 +1,10 @@
 <nav class="flex h-[220px] fixed w-full z-10 bg-gradient-to-r from-blue-500 to-blue-300 shadow-lg">
-    <!-- Sidebar -->
+    <!-- Sidebar  -->
     <div class="flex flex-col justify-center items-center w-[300px] p-6 bg-blue-700 text-white">
         <div class="flex flex-col gap-4 items-center">
             <i class="ph ph-user-circle text-[64px] text-white"></i>
             @auth
-                <!-- Jika pengguna sudah login -->
+                <!-- Jika pengguna sudah login  -->
                 <div class="text-center">
                     <p class="font-bold text-lg">{{ auth()->user()->name }}</p>
                     <p class="text-sm text-gray-200">{{ auth()->user()->email }}</p>
@@ -35,7 +35,7 @@
             <h5 class="text-gray-600 font-medium">Repositori Proyek Mahasiswa Institut Teknologi dan Bisnis Sabda Setia</h5>
         </div>
 
-        <!-- Search Bar -->
+       <!-- Search Bar  -->
         <div class="flex justify-center mt-6">
         <div class="relative w-3/4 sm:w-1/2 flex items-center">
             <input 
@@ -48,4 +48,6 @@
         </div>
         </div>
     </div>
-</nav>
+</nav> 
+
+

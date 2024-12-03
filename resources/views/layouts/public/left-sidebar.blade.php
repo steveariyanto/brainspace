@@ -25,15 +25,15 @@
                 <i class="ph ph-globe text-xl"></i>
                 <a href="">Informasi</a>
                 </li>
+
                 <li class="flex items-center gap-2 text-blue-700 hover:text-blue-900 duration-200">
                 <i class="ph ph-globe text-xl"></i>   
                 <a href="">Layanan</a>
                 </li>
-
+                
                 <li class="flex items-center gap-2 text-blue-700 hover:text-blue-900 duration-200">
                 <i class="ph ph-bell text-xl"></i>    
                 <a href="">Notifikasi</a>
-
                 </li>
             </ul>
         </div>

@@ -12,7 +12,6 @@
     <div id="wrapper">
 
         @include('layouts.public.nav')
-
         @include('layouts.public.left-sidebar')
 
         <div class="overflow-y-auto overflow-x-hidden pt-[220px] pl-[300px] w-full h-screen">
