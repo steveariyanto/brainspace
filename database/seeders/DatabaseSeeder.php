@@ -3,55 +3,60 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Notification;
+use App\Models\User;
+use App\Models\Category;
 use App\Models\Project;
 use App\Models\ProjectStatus;
-use App\Models\Category;
 use App\Models\File;
+use App\Models\Notification;
 
 class DatabaseSeeder extends Seeder
 {
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
     public function run()
     {
-        // Jalankan seeders lain
-        $this->call([
-            NotificationSeeder::class,
-            FileSeeder::class,
-            ProjectSeeder::class,
-            ProjectStatusSeeder::class,
+        // Buat pengguna
+        User::create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => bcrypt('password'),
+            'role' => 'admin'
         ]);
 
-        // Tambahkan data dummy langsung menggunakan model
-        $categories = [
-            ['categories_name' => 'PDF'],
-            ['categories_name' => 'PPT'],
-            ['categories_name' => 'DOCX'],
-        ];
-
-        foreach ($categories as $category) {
-            Category::create($category);
-        }
-
-        $files = [
-            [
-                'files_name' => 'file1.pdf',
-                'files_url' => '/files/file1.pdf',
-                'projects_id' => 1,
-            ],
-            [
-                'files_name' => 'file2.ppt',
-                'files_url' => '/files/file2.ppt',
-                'projects_id' => 2,
-            ],
-            [
-                'files_name' => 'file3.docx',
-                'files_url' => '/files/file3.docx',
-                'projects_id' => 3,
-            ],
-        ];
-
-        foreach ($files as $file) {
-            File::create($file);
-        }
+        Category::create(["name" => "PDF"]);
+        Category::create(["name" => "PPT"]);
+        Category::create(["name" => "DOCX"]);
+        //         $users = User::factory(10)->create(); // Membuat 10 pengguna
+//
+//         // Buat kategori
+//         $categories = Category::factory(5)->create(); // Membuat 5 kategori
+//
+//         // Buat status proyek
+//         $projectStatuses = ProjectStatus::factory(3)->create(); // Membuat 3 status proyek
+//
+//         // Buat proyek dan relasikannya dengan pengguna dan kategori
+//         foreach ($users as $user) {
+//             $projects = Project::factory(2)->create([
+//                 'users_id' => $user->users_id, // Mengaitkan proyek dengan pengguna
+//                 'category_id' => $categories->random()->category_id, // Mengaitkan proyek dengan kategori acak
+//                 'project_status_id' => $projectStatuses->random()->project_status_id, // Mengaitkan proyek dengan status acak
+//             ]);
+//
+//             // Buat file untuk setiap proyek
+//             foreach ($projects as $project) {
+//                 File::factory(3)->create([
+//                     'project_id' => $project->project_id, // Mengaitkan file dengan proyek
+//                 ]);
+//             }
+//
+//             // Buat notifikasi untuk setiap pengguna
+//             Notification::factory(2)->create([
+//                 'users_id' => $user->users_id, // Mengaitkan notifikasi dengan pengguna
+//             ]);
+//         }
     }
 }

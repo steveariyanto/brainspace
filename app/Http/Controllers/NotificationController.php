@@ -12,12 +12,12 @@ class NotificationController extends Controller
      */
     public function index(Request $request)
     {
-        // Mengambil notifikasi berdasarkan users_id yang sedang login
-        $notifications = Notification::where('user_id', $request->user()->id) // Menggunakan 'users_id'
-            ->orderBy('created_at', 'desc') // Urutkan berdasarkan waktu dibuat
+        // Mengambil notifikasi berdasarkan user_id yang sedang login
+        $notifications = Notification::where('user_id', $request->user()->id) // Menggunakan 'user_id'
+            ->orderBy('notifications_created_at', 'desc') // Urutkan berdasarkan waktu dibuat
             ->get();
 
-        return view('notification', compact('notifications'));
+        return view('notifications.index', compact('notifications'));
     }
 
     /**

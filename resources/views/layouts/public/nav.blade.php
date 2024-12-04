@@ -3,17 +3,15 @@
         <div class="flex flex-col gap-4 items-center text-black">
             <i class="ph ph-user-circle text-[64px]"></i>
             @auth
-                <!-- Jika pengguna sudah login  -->
+                <!-- Jika pengguna sudah login -->
                 <div class="text-center">
                     <p class="font-bold text-black">{{ auth()->user()->name }}</p>
                 </div>
 
                 <div class="d-flex gap-1">
-                    @if(auth()->user()->role == "admin")
-                        <a href="/dashboard" class="bg-blue-600 rounded-full p-2 px-3 text-white ">
-                            Dashboard
-                        </a>
-                    @endif
+                    <a href="/dashboard" class="bg-blue-600 rounded-full p-2 px-3 text-white ">
+                        Dashboard
+                    </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -33,12 +31,12 @@
     </div>
 
     <div class="w-full flex-1 bg-blue-300 p-5">
-        <div class="header-text text-center py-2 text-white">
+        <div class="header-text text-center py-2 text-black">
             <a href="/"><h1 class="text-[32px]">BrainSpace</h1></a>
             <h5>Repositori Proyek Mahasiswa Institut Teknologi dan Bisnis Sabda Setia</h5>
         </div>
 
-       <!-- Search Bar  -->
+        <!-- Search Bar -->
         <div class="flex justify-center mt-6">
         <div class="relative w-3/4 sm:w-1/2 flex items-center">
             <input
@@ -51,6 +49,4 @@
         </div>
         </div>
     </div>
-</nav> 
-
-
+</nav>
