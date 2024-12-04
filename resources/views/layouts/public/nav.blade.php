@@ -33,7 +33,7 @@
     </div>
 
     <div class="w-full flex-1 bg-blue-300 p-5">
-        <div class="header-text text-center py-2 text-black">
+        <div class="header-text text-center py-2 text-white">
             <a href="/"><h1 class="text-[32px]">BrainSpace</h1></a>
             <h5>Repositori Proyek Mahasiswa Institut Teknologi dan Bisnis Sabda Setia</h5>
         </div>
