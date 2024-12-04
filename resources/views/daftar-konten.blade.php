@@ -28,33 +28,33 @@
                 </thead>
 
                 <tbody class="text-gray-700" id="contentTableBody">
-                    @for($i = 0; $i < count($project); $i++)
+                    @foreach ($project as $key => $item)
                         <tr>
-                            <td class="py-2 px-4 text-center">{{ $i+1 }}</td>
-                            <td class="py-2 px-4 text-center">{{ $project[$i]['projects_title'] }}</td>
-                            <td class="py-2 px-4 text-center">{{ $project[$i]['category']['name'] }}</td>
-                            <td class="py-2 px-4 text-center">{{ $project[$i]['projects_description'] }}</td>
+                            <td class="py-2 px-4 text-center">{{ $key + 1 }}</td>
+                            <td class="py-2 px-4 text-center">{{ $item->projects_title }}</td>
+                            <td class="py-2 px-4 text-center">{{ $item->category->categories_name }}</td>
+                            <td class="py-2 px-4 text-center">{{ $item->projects_description }}</td>
                             <td class="py-2 px-4 text-center">
-                                @if($project[$i]["project_link"])
-                                    <a href="{{ $project[$i]["project_link"] }}" class="text-blue-500" target="_blank" >Klik Link</a>
+                                @if($item->project_link)
+                                    <a href="{{ $item->project_link }}" class="text-blue-500" target="_blank">Klik Link</a>
                                 @else
                                     Tidak ada link
                                 @endif
                             </td>
-                            <td class="py-2 px-4 text-center">{{ \Carbon\Carbon::parse($project[$i]->created_at)->format('d-m-Y') }}</td>
+                            <td class="py-2 px-4 text-center">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
                             <td class="py-2 px-4 text-center">
                                 <div class="flex flex-wrap gap-2 justify-center">
-                                    <a href="{{'/hapus-konten/'.$project[$i]['projects_id']}}" class="bg-red-500 rounded-md p-1 px-2">
+                                    <a href="{{ url('/hapus-konten/' . $item->projects_id) }}" class="bg-red-500 rounded-md p-1 px-2">
                                         <i class="ph ph-trash text-white"></i>
                                     </a>
 
-                                    <a href="{{'/edit-konten/'.$project[$i]['projects_id']}}" class="bg-yellow-500 rounded-md p-1 px-2">
+                                    <a href="{{ url('/edit-konten/' . $item->projects_id) }}" class="bg-yellow-500 rounded-md p-1 px-2">
                                         <i class="ph ph-pencil text-white"></i>
                                     </a>
                                 </div>
                             </td>
                         </tr>
-                    @endfor
+                    @endforeach
                 </tbody>
             </table>
         </div>
