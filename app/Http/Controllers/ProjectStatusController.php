@@ -12,10 +12,18 @@ class ProjectStatusController extends Controller
      */
     public function index()
     {
-        $statuses = ProjectStatus::orderBy('project_status.updated_at', 'desc') // Mengurutkan berdasarkan tanggal diperbarui
+        $statuses = ProjectStatus::orderBy('updated_at', 'desc') // Mengurutkan berdasarkan tanggal diperbarui
             ->get();
 
         return view('admin.project-status.index', compact('statuses'));
+    }
+
+    /**
+     * Menampilkan form untuk membuat status proyek baru.
+     */
+    public function create()
+    {
+        return view('admin.project-status.create');
     }
 
     /**
@@ -23,16 +31,29 @@ class ProjectStatusController extends Controller
      */
     public function store(Request $request)
     {
+        // Validasi input dari user
         $request->validate([
-            'projects_id' => 'required|exists:projects,projects_id', // Pastikan project ID valid
             'project_status_name' => 'required|string|max:255',
             'project_status_updated_at' => 'required|date',
         ]);
 
-        $status = new ProjectStatus($request->all());
+        // Menyimpan status proyek baru
+        $status = new ProjectStatus();
+        $status->project_status_name = $request->project_status_name;
+        $status->project_status_updated_at = $request->project_status_updated_at;
         $status->save();
 
+        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('project-status.index')->with('status', 'Project status created successfully.');
+    }
+
+    /**
+     * Menampilkan form untuk mengedit status proyek.
+     */
+    public function edit($id)
+    {
+        $status = ProjectStatus::findOrFail($id); // Menemukan status proyek berdasarkan ID
+        return view('admin.project-status.edit', compact('status'));
     }
 
     /**
@@ -40,14 +61,19 @@ class ProjectStatusController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Validasi input dari user
         $request->validate([
             'project_status_name' => 'required|string|max:255',
             'project_status_updated_at' => 'required|date',
         ]);
 
+        // Menemukan status proyek yang akan diupdate
         $status = ProjectStatus::findOrFail($id);
-        $status->update($request->all());
+        $status->project_status_name = $request->project_status_name;
+        $status->project_status_updated_at = $request->project_status_updated_at;
+        $status->save();
 
+        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('project-status.index')->with('status', 'Project status updated successfully.');
     }
 
@@ -56,9 +82,10 @@ class ProjectStatusController extends Controller
      */
     public function destroy($id)
     {
-        $status = ProjectStatus::findOrFail($id);
-        $status->delete();
+        $status = ProjectStatus::findOrFail($id); // Menemukan status proyek berdasarkan ID
+        $status->delete(); // Menghapus status proyek
 
+        // Redirect ke halaman index dengan pesan sukses
         return redirect()->route('project-status.index')->with('status', 'Project status deleted successfully.');
     }
 }

@@ -18,13 +18,19 @@ class CategoryController extends Controller
         return view('admin.category.index', compact('categories'));
     }
 
+    public function create()
+    {
+        // Return view untuk tambah kategori
+        return view('admin.category.tambah-category');
+    }
+
     /**
      * Menyimpan kategori baru.
      */
     public function store(Request $request)
     {
         $request->validate([
-            'categories_name' => 'required|string|max:255',
+            'categories_name' => 'required|string|in:PowerPoint,Paper,Laporan Proyek,Lainnya',
         ]);
 
         $category = new Category([
@@ -46,7 +52,9 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id); // Menemukan kategori berdasarkan ID
 
-        return view('categories.edit', compact('category'));
+        $categories_options = ['PowerPoint', 'Paper', 'Laporan Proyek', 'Lainnya'];
+
+        return view('categories.edit', compact('category', 'categories_options'));
     }
 
     /**
@@ -55,7 +63,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'categories_name' => 'required|string|max:255',
+            'categories_name' => 'required|string|in:PowerPoint,Paper,Laporan Proyek,Lainnya',
         ]);
 
         $category = Category::findOrFail($id);

@@ -52,9 +52,16 @@ Route::middleware('auth')->group(function () {
 
     //Route untuk ke halaman project status
     Route::get("/project-status", [ProjectStatusController::class, "index"])->name('project_status');
+    Route::get("/project-status/create", [ProjectStatusController::class, "create"])->name('project-status.create');
+    Route::post("/project-status", [ProjectStatusController::class, "store"])->name('project-status.store');
+    Route::get("/project-status/{id}/edit", [ProjectStatusController::class, "edit"])->name('project-status.edit');
+    Route::put("/project-status/{id}", [ProjectStatusController::class, "update"])->name('project-status.update');
+    Route::delete("/project-status/{id}", [ProjectStatusController::class, "destroy"])->name('project-status.destroy');
+    
 
     //Route untuk ke halaman category
     Route::get("/category", [CategoryController::class, "index"])->name('project_status');
+    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
 });
 
 Route::get('/home', function () {
