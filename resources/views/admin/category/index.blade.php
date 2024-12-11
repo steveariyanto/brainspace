@@ -9,7 +9,9 @@
     <div class="card-header py-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-2">
             <h1 class="h3 mb-0 text-gray-800">Category</h1>
-            <!-- Tidak ada tombol Tambah Kategori karena hanya menampilkan kategori statis -->
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-lg">
+                <i class="fas fa-download fa-sm text-white-50"></i> Tambah Kategori
+            </a>
         </div>
     </div>
     <div class="card-body">
@@ -23,43 +25,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Menampilkan 4 kategori statis -->
+                    @foreach ($categories as $index => $category)
                     <tr>
-                        <td>1</td>
-                        <td>PowerPoint</td>
+                        <td>{{ ++$index }}</td>
+                        <td>{{ $category->name }}</td>
                         <td>
-                            <!-- Aksi (misalnya tombol Edit dan Hapus) -->
-                            <button class="btn btn-warning btn-sm">Edit</button>
-                            <button class="btn btn-danger btn-sm">Hapus</button>
+                            <i class="fa fa-pencil"></i> edit
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Paper</td>
-                        <td>
-                            <!-- Aksi (misalnya tombol Edit dan Hapus) -->
-                            <button class="btn btn-warning btn-sm">Edit</button>
-                            <button class="btn btn-danger btn-sm">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Laporan Proyek</td>
-                        <td>
-                            <!-- Aksi (misalnya tombol Edit dan Hapus) -->
-                            <button class="btn btn-warning btn-sm">Edit</button>
-                            <button class="btn btn-danger btn-sm">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Lainnya</td>
-                        <td>
-                            <!-- Aksi (misalnya tombol Edit dan Hapus) -->
-                            <button class="btn btn-warning btn-sm">Edit</button>
-                            <button class="btn btn-danger btn-sm">Hapus</button>
-                        </td>
-                    </tr>
+                    </tr>                        
+                    @endforeach
                 </tbody>
             </table>
         </div>
