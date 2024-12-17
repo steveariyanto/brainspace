@@ -19,6 +19,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+        $this->call([
+            CategorySeeder::class,
+            ProjectSeeder::class,
+            FileSeeder::class,
+            ProjectStatusSeeder::class,
+            NotificationSeeder::class,
+        ]);
         // Buat pengguna
         User::create([
             'name' => 'Admin',
