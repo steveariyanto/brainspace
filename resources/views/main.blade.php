@@ -8,7 +8,7 @@
 
         <a href="/tambah-konten" class="rounded-md bg-blue-400 py-2 px-3 text-white hover:bg-blue-200 hover:text-black duration-300">Tambah Proyek Baru</a>
     </div>
-
+    
     <div class="flex flex-col gap-5">
         <div class="py-2">
             <div class="flex justify-between">

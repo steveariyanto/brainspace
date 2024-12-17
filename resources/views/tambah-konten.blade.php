@@ -66,8 +66,8 @@ $category_id = (isset($project)) ? $project->category->id : null;
         </div>
     @endif
 
-    <div class="mb-6 bg-white p-5 rounded-lg shadow-md">
-        <a href="{{ url('/home') }}" class="bg-blue-500 text-white p-2 rounded-md mb-4 inline-block">
+    <div class="mb-2 bg-white p-2 rounded-lg shadow-md">
+        <a href="/daftar-konten" class="bg-blue-500 text-white p-2 rounded-md mb-3   inline-block">
             Kembali
         </a>
 
@@ -191,7 +191,7 @@ $category_id = (isset($project)) ? $project->category->id : null;
                     </div>
                 </div> -->
 
-                    <div class="fixed bottom-6 right-6">
+                    <div class="fixed bottom-10 right-6">
                             <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-200">
                                 Tambah Konten
                             </button>
