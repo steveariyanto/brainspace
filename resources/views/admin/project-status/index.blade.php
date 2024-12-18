@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('name', "Home")
+@section('name', "Project Status")
 
 @section('content')
 
@@ -25,7 +25,23 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @php
+                        $statuses = ['Pending', 'Accept', 'Reject']; // Data statis untuk status
+                    @endphp
+                    @foreach ($statuses as $index => $status)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $status }}</td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-warning">
+                                <i class="fa fa-pencil"></i> Edit
+                            </a>
+                            <button type="button" class="btn btn-sm btn-danger" onclick="confirm('Are you sure?')">
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

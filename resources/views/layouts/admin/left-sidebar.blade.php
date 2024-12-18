@@ -53,7 +53,7 @@
 <li class="nav-item">
     <a class="nav-link" href="/project-approval">
         <i class="fas fa-fw fa-chart-area"></i>
-        <span>Project</span>
+        <span>Project Approval</span>
     </a>
 </li>
 </ul>

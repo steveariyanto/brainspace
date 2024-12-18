@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
 
-@section('name', "Home")
+@section('name', "Project Approval")
 
 @section('content')
 
@@ -25,7 +25,66 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    @php
+                        $approvals = [
+                            [
+                                'applicant_name' => 'John Doe',
+                                'project_title' => 'Website Design',
+                                'project_description' => 'Pembuatan website responsif untuk perusahaan.',
+                                'file' => null, // Tidak ada file
+                                'status' => 'Pending',
+                                'badge_class' => 'warning'
+                            ],
+                            [
+                                'applicant_name' => 'Jane Smith',
+                                'project_title' => 'Mobile App Development',
+                                'project_description' => 'Pengembangan aplikasi mobile untuk layanan kesehatan.',
+                                'file' => 'documents/app-development.pdf', // Contoh file
+                                'status' => 'Accept',
+                                'badge_class' => 'success'
+                            ],
+                            [
+                                'applicant_name' => 'Alice Brown',
+                                'project_title' => 'Digital Marketing Strategy',
+                                'project_description' => 'Strategi pemasaran digital untuk meningkatkan brand awareness.',
+                                'file' => null, // Tidak ada file
+                                'status' => 'Reject',
+                                'badge_class' => 'danger'
+                            ]
+                        ];
+                    @endphp
+                    @foreach ($approvals as $index => $approval)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $approval['applicant_name'] }}</td>
+                        <td>{{ $approval['project_title'] }}</td>
+                        <td>{{ $approval['project_description'] }}</td>
+                        <td>
+                            @if($approval['file'])
+                            <a href="{{ asset('storage/' . $approval['file']) }}" target="_blank" class="btn btn-sm btn-info">
+                                <i class="fa fa-download"></i> Download
+                            </a>
+                            @else
+                            <span class="text-muted">Tidak ada file</span>
+                            @endif
+                        </td>
+                        <td>
+                            <span class="badge badge-{{ $approval['badge_class'] }}">
+                                {{ $approval['status'] }}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-warning">
+                                <i class="fa fa-pencil"></i> Edit
+                            </a>
+                            <button type="button" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </div>
