@@ -13,13 +13,13 @@ class NotificationSeeder extends Seeder
             [
                 'user_id' => 1,
                 'message' => 'Your project has been approved.',
-                'status' => true,
+                'status' => 1,
                 'created_at' => now(),
             ],
             [
                 'user_id' => 2,
                 'message' => 'Your project is pending approval.',
-                'status' => false,
+                'status' => 0,
                 'created_at' => now(),
             ],
         ]);

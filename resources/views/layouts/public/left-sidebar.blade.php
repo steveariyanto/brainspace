@@ -22,7 +22,7 @@
                             <a href="">Notifikasi</a> -->
                     <!--<div class="fixed w-[300px] h-screen fixed pt-[220px] bg-blue-200 text-black">
                         <div class="w-full">
-                            <div class="fixed w-[300px] h-screen flex flex-col bg-blue-200 text-black">                             
+                            <div class="fixed w-[300px] h-screen flex flex-col bg-blue-200 text-black">
                                     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
                                     Sidebar - Brand
                                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
@@ -83,7 +83,7 @@
             </li>
         </ul> -->
                 <!-- </div>
-        </div>          
+        </div>
     </div>
 </div> -->
 

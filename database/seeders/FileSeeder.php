@@ -12,15 +12,13 @@ class FileSeeder extends Seeder
         DB::table('files')->insert([
             [
                 'project_id' => 1,
-                'name' => 'project-overview.pdf',
-                'url' => 'files/project-overview.pdf',
+                'file_path' => 'files/project-overview.pdf',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'project_id' => 2,
-                'name' => 'app-design.png',
-                'url' => 'files/app-design.png',
+                'file_path' => 'files/app-design.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

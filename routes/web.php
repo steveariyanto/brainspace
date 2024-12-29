@@ -57,11 +57,15 @@ Route::middleware('auth')->group(function () {
     Route::get("/project-status/{id}/edit", [ProjectStatusController::class, "edit"])->name('project-status.edit');
     Route::put("/project-status/{id}", [ProjectStatusController::class, "update"])->name('project-status.update');
     Route::delete("/project-status/{id}", [ProjectStatusController::class, "destroy"])->name('project-status.destroy');
-    
+
 
     //Route untuk ke halaman category
-    Route::get("/category", [CategoryController::class, "index"])->name('project_status');
-    Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+    Route::get("/category", [CategoryController::class, "index"])->name('category.index');
+    Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+    Route::post('/category/save', [CategoryController::class, 'store'])->name('category.save');
+    Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.detail');
+    Route::post('/category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::get('/category/hapus/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
 });
 
 Route::get('/home', function () {

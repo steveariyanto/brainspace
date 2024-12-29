@@ -14,7 +14,7 @@
         @include('layouts.public.nav')
         @include('layouts.public.left-sidebar')
 
-        <div class="overflow-y-auto overflow-x-hidden pt-[220px] pl-[300px] w-full h-screen">
+        <div class="overflow-y-auto overflow-x-hidden pt-[100px] pl-[14rem] w-full h-screen">
             <div class="sm:p-2 p-1">
 
                 @yield('content')

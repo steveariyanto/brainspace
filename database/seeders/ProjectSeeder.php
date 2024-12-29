@@ -11,18 +11,18 @@ class ProjectSeeder extends Seeder
     {
         DB::table('projects')->insert([
             [
-                'user_id' => 1,
-                'category_id' => 1,
-                'title' => 'BrainSpace Web Platform',
-                'description' => 'A repository for student projects.',
+                'users_id' => 2,
+                'categories_id' => 1,
+                'projects_title' => 'BrainSpace Web Platform',
+                'projects_description' => 'A repository for student projects.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'user_id' => 2,
-                'category_id' => 2,
-                'title' => 'BrainSpace Mobile App',
-                'description' => 'Mobile version of the BrainSpace platform.',
+                'users_id' => 2,
+                'categories_id' => 2,
+                'projects_title' => 'BrainSpace Mobile App',
+                'projects_description' => 'Mobile version of the BrainSpace platform.',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

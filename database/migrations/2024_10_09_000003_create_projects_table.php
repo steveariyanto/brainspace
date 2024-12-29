@@ -15,7 +15,7 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('categories_id'); // ID kategori yang terkait
             $table->string('projects_title', 200); // Judul proyek
             $table->text('projects_description'); // Deskripsi proyek
-            $table->tinyInteger("is_approved")->defaultValue(0); //
+            $table->tinyInteger("is_approved")->default(0); //
             $table->timestamps(); // Timestamp untuk created_at dan updated_at
 
             // Definisi kunci asing
