@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Route;
 // Rute untuk login
 Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
 Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 // Rute untuk register
 Route::get('/register', [AuthRegisteredUserController::class, 'create'])->name('register');
@@ -35,11 +34,13 @@ Route::controller(ContentController::class)->middleware(['auth', 'verified'])->g
 });
 
 Route::controller(NotificationController::class)->middleware(['auth', 'verified'])->group(function() {
-    Route::get('/notifikasi', 'index');
+    Route::get('/notifikasi', 'index')->name('notifikasi');
 });
 
 // Rute untuk profil (hanya bisa diakses setelah login)
 Route::middleware('auth')->group(function () {
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -49,15 +50,16 @@ Route::middleware('auth')->group(function () {
 
     //Route untuk ke halaman project approval
     Route::get("/project-approval", [ProjectApprovalController::class, "index"])->name('project_approval');
+    Route::get("/project-approval/approve/{id}", [ProjectApprovalController::class, "approve"])->name('project_approval.approve');
+    Route::get("/project-approval/reject/{id}", [ProjectApprovalController::class, "reject"])->name('project_approval.reject');
 
     //Route untuk ke halaman project status
-    Route::get("/project-status", [ProjectStatusController::class, "index"])->name('project_status');
+    Route::get("/project-status", [ProjectStatusController::class, "index"])->name('project-status.index');
     Route::get("/project-status/create", [ProjectStatusController::class, "create"])->name('project-status.create');
-    Route::post("/project-status", [ProjectStatusController::class, "store"])->name('project-status.store');
-    Route::get("/project-status/{id}/edit", [ProjectStatusController::class, "edit"])->name('project-status.edit');
-    Route::put("/project-status/{id}", [ProjectStatusController::class, "update"])->name('project-status.update');
-    Route::delete("/project-status/{id}", [ProjectStatusController::class, "destroy"])->name('project-status.destroy');
-
+    Route::post("/project-status/save", [ProjectStatusController::class, "store"])->name('project-status.save');
+    Route::get("/project-status/edit/{id}", [ProjectStatusController::class, "edit"])->name('project-status.detail');
+    Route::post("/project-status/update/{id}", [ProjectStatusController::class, "update"])->name('project-status.update');
+    Route::get("/project-status/hapus/{id}", [ProjectStatusController::class, "destroy"])->name('project-status.destroy');
 
     //Route untuk ke halaman category
     Route::get("/category", [CategoryController::class, "index"])->name('category.index');

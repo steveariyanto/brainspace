@@ -13,6 +13,7 @@ class ProjectSeeder extends Seeder
             [
                 'users_id' => 2,
                 'categories_id' => 1,
+                'project_status_id' => 2,  // pending status
                 'projects_title' => 'BrainSpace Web Platform',
                 'projects_description' => 'A repository for student projects.',
                 'created_at' => now(),
@@ -21,6 +22,7 @@ class ProjectSeeder extends Seeder
             [
                 'users_id' => 2,
                 'categories_id' => 2,
+                'project_status_id' => 2,  // pending status
                 'projects_title' => 'BrainSpace Mobile App',
                 'projects_description' => 'Mobile version of the BrainSpace platform.',
                 'created_at' => now(),

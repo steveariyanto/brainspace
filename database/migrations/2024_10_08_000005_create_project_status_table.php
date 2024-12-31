@@ -11,12 +11,8 @@ class CreateProjectStatusTable extends Migration
     {
         Schema::create('project_status', function (Blueprint $table) {
             $table->bigIncrements('id'); // Kunci utama
-            $table->unsignedBigInteger('project_id'); // ID proyek yang terkait
-            $table->string('status'); // Status proyek
+            $table->string('name'); // Status proyek
             $table->timestamps(); // Timestamp untuk created_at dan updated_at
-
-            // Definisi kunci asing
-            $table->foreign('project_id')->references('projects_id')->on('projects')->onDelete('cascade');
         });
     }
 

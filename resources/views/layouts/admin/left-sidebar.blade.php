@@ -56,5 +56,12 @@
             <span>Project Approval</span>
         </a>
     </li>
+
+    <!-- Nav Item - Charts -->
+    <li class="nav-item bg-red-500">
+        <a class="nav-link" href="/logout">
+            <span>Logout</span>
+        </a>
+    </li>
 </ul>
 <!-- End of Sidebar -->

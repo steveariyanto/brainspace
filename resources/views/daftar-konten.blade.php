@@ -18,6 +18,7 @@
                         <th class="w-2/12 py-3 px-4 text-center" colspan="2">Konten</th>
                         <th class="w-3/12 py-3 px-4 text-center" rowspan="2">Deskripsi</th>
                         <th class="w-2/12 py-3 px-4 text-center" rowspan="2">Link</th>
+                        <th class="w-2/12 py-3 px-4 text-center" rowspan="2">Status</th>
                         <th class="w-2/12 py-3 px-4 text-center" rowspan="2">Tanggal Publikasi</th>
                         <th class="w-2/12 py-3 px-4 text-center" rowspan="2">Aksi</th>
                     </tr>
@@ -41,6 +42,13 @@
                                     Tidak ada link
                                 @endif
                             </td>
+
+                            @php
+                                $status = "warning";
+                                if($item->projectStatus->id == 1){$status = "success"; }
+                                else if($item->projectStatus->id == 3){ $status = "danger";}
+                            @endphp
+                            <td class="py-2 px-4 text-center"><span class="badge badge-{{$status}}">{{ $item->projectStatus->name }}</span></td>
                             <td class="py-2 px-4 text-center">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
                             <td class="py-2 px-4 text-center">
                                 <div class="flex flex-wrap gap-2 justify-center">

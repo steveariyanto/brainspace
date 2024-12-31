@@ -135,7 +135,7 @@
                         <div class="fixed bottom-10 right-6">
                             <button
                                 class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-200">
-                                {{ (isset($project) ? "Edit" : "Tambah") ? }} Konten
+                                {{ (isset($project)) ? "Edit" : "Tambah" }} Konten
                             </button>
                         </div>
                 </form>

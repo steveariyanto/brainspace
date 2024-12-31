@@ -11,13 +11,15 @@ class ProjectStatusSeeder extends Seeder
     {
         DB::table('project_status')->insert([
             [
-                'project_id' => 1,
-                'status' => 'approved',
+                'name' => 'approved',
                 'updated_at' => now(),
             ],
             [
-                'project_id' => 2,
-                'status' => 'pending',
+                'name' => 'pending',
+                'updated_at' => now(),
+            ],
+            [
+                'name' => 'rejected',
                 'updated_at' => now(),
             ],
         ]);

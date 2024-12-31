@@ -1,4 +1,4 @@
-@if (Route::is('home'))
+@if (Route::is('home') || Route::is('notifikasi'))
     <nav class="fixed top-0 right-0 z-50 w-full pl-[14rem]">
 
         <div class="w-full bg-gradient-to-r from-blue-600 to-blue-900  py-3 px-6">

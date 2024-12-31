@@ -40,9 +40,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategorySeeder::class,
+            ProjectStatusSeeder::class,
             ProjectSeeder::class,
             FileSeeder::class,
-            ProjectStatusSeeder::class,
             NotificationSeeder::class,
         ]);
     }

@@ -3,6 +3,15 @@
 @section('name', "Home")
 
 @section('content')
+<script async>
+    function confirmDelete(id) {
+        console.log("coba")
+        let is_confirmed = confirm('Apakah anda yakin ingin menghapus kategori ini?');
+        if (is_confirmed) {
+            window.location.href = '/category/hapus/' + id;
+        }
+    }
+</script>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -34,9 +43,9 @@
                                 <i class="fa fa-pencil"></i> edit
                             </a>
 
-                            <a class="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-800 transition-all">
+                            <button onclick="confirmDelete(`{{ $category->id }}`)" class="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-800 transition-all">
                                 <i class="fa fa-pencil"></i> Hapus
-                            </a>
+                            </button>
                         </td>
                     </tr>
                     @endforeach
