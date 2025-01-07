@@ -85,15 +85,15 @@ $category_id = (isset($project)) ? $project->category->id : null;
                         <textarea class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" name="deskripsi" placeholder="Tulis deskripsi disini">{{ $project->projects_description ?? '' }}</textarea>
                     </div>
 
-                    <!-- <div class="col-span-1">
+                    <div class="col-span-1">
                         <label class="block text-sm font-medium text-gray-700" for="kategori">Kategori</label>
                         <select id="kategori" name="kategori" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required>
                         @foreach ($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
-                    </div> -->
-                    <div class="col-span-1">
+                    </div> 
+                    <!-- <div class="col-span-1">
                         <label class="block text-sm font-medium text-gray-700" for="kategori">Kategori</label>
                         <select id="kategori" name="kategori" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required onchange="updateFileAccept()">
                             <option value="" disabled selected>Pilih Kategori</option>
@@ -102,7 +102,7 @@ $category_id = (isset($project)) ? $project->category->id : null;
                             <option value="Laporan">Laporan Proyek</option>
                             <option value="Lainnya">Lainnya</option>
                         </select>
-                    </div>
+                    </div> -->
 
                     <div class="col-span-1">
                         <label for="file_link" class="block text-sm font-medium text-gray-700">Link File</label>
@@ -191,11 +191,11 @@ $category_id = (isset($project)) ? $project->category->id : null;
                     </div>
                 </div> -->
 
-                    <div class="fixed bottom-10 right-6">
-                            <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-200">
-                                Tambah Konten
-                            </button>
-                    </div>
+                <div class="fixed bottom-10 right-6">
+                    <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded shadow-md transition duration-200">
+                        Tambah Konten
+                    </button>
+                </div>
             </form>
         </div>
     </div>
