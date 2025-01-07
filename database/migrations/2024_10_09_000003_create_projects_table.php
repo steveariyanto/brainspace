@@ -13,14 +13,16 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('projects_id'); // Kunci utama
             $table->unsignedBigInteger('users_id'); // ID pengguna yang terkait
             $table->unsignedBigInteger('categories_id'); // ID kategori yang terkait
+            $table->unsignedBigInteger('project_status_id'); // ID kategori yang terkait
             $table->string('projects_title', 200); // Judul proyek
             $table->text('projects_description'); // Deskripsi proyek
-            $table->tinyInteger("is_approved")->defaultValue(0); //
+            $table->tinyInteger("is_approved")->default(0); //
             $table->timestamps(); // Timestamp untuk created_at dan updated_at
 
             // Definisi kunci asing
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('categories_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('project_status_id')->references('id')->on('project_status')->onDelete('cascade');
         });
     }
 

@@ -3,13 +3,22 @@
 @section('name', "Home")
 
 @section('content')
+<script async>
+    function confirmDelete(id) {
+        console.log("coba")
+        let is_confirmed = confirm('Apakah anda yakin ingin menghapus kategori ini?');
+        if (is_confirmed) {
+            window.location.href = '/category/hapus/' + id;
+        }
+    }
+</script>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <div class="d-sm-flex align-items-center justify-content-between mb-2">
             <h1 class="h3 mb-0 text-gray-800">Category</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-lg">
+            <a href="/category/create" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm text-lg">
                 <i class="fas fa-download fa-sm text-white-50"></i> Tambah Kategori
             </a>
         </div>
@@ -30,9 +39,15 @@
                         <td>{{ ++$index }}</td>
                         <td>{{ $category->name }}</td>
                         <td>
-                            <i class="fa fa-pencil"></i> edit
+                            <a href="/category/edit/{{ $category->id }}" class="bg-yellow-500 text-white px-3 py-2 rounded-md hover:bg-yellow-800 transition-all" >
+                                <i class="fa fa-pencil"></i> edit
+                            </a>
+
+                            <button onclick="confirmDelete(`{{ $category->id }}`)" class="bg-red-500 text-white px-3 py-2 rounded-md hover:bg-red-800 transition-all">
+                                <i class="fa fa-pencil"></i> Hapus
+                            </button>
                         </td>
-                    </tr>                        
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

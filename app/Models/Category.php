@@ -10,13 +10,10 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'categories'; // Nama tabel
-    protected $primaryKey = 'categories_id'; // Primary key
     public $timestamps = true; // Mengaktifkan timestamps
 
     protected $fillable = [
-        'categories_name',
-        'categories_created_at',
-        'categories_updated_at',
+        'name'
     ];
 
     public function projects()

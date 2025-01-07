@@ -13,6 +13,7 @@ class CreateNotificationsTable extends Migration
             $table->bigIncrements('id'); // Kunci utama
             $table->unsignedBigInteger('user_id'); // ID pengguna yang terkait
             $table->text('message'); // Pesan notifikasi
+            $table->tinyInteger('status')->Default(0); // Pesan notifikasi
             $table->timestamps(); // Timestamp untuk created_at dan updated_at
 
             // Definisi kunci asing

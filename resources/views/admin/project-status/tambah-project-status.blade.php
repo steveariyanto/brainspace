@@ -5,7 +5,7 @@
 @section('content')
 
 @php
-    $route = (isset($category))? route('category.update', $category->id) : route('category.save');
+    $route = (isset($status))? route('project-status.update', $status->id) : route('project-status.save');
 @endphp
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -17,10 +17,10 @@
         @csrf
 
         <div class="form-group text-left">
-            <label class="font-bold text-slate-700" for="nama">Nama Kategori</label>
-            <input type="text" class="form-control" id="nama" name="nama" required value="{{ isset($category) ? $category->name : "" }}">
+            <label class="font-bold text-slate-700" for="nama">Nama Status</label>
+            <input type="text" class="form-control" id="nama" name="nama" required value="{{ isset($status) ? $status->name : "" }}">
         </div>
-        <button type="submit" class="btn btn-primary w-full">{{ (isset($category)) ? "Edit" : "Tambah" }}</button>
+        <button type="submit" class="btn btn-primary w-full">{{ (isset($status)) ? "Edit" : "Tambah" }}</button>
     </form>
 </div>
 @endsection

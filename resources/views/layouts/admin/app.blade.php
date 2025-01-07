@@ -25,7 +25,7 @@
                 @include('layouts.admin.nav')
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid px-2">
 
                     @yield('content')
 

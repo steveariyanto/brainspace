@@ -21,7 +21,7 @@ class CategoryController extends Controller
     public function create()
     {
         // Return view untuk tambah kategori
-        return view('tambah-category');
+        return view('admin.category.tambah-category');
     }
 
     /**
@@ -29,20 +29,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
-            'categories_name' => 'required|string|in:PowerPoint,Paper,Laporan Proyek,Lainnya',
+            'nama' => 'required|string',
         ]);
 
-        $category = new Category([
-            'categories_name' => $request->categories_name,
-            'categories_created_at' => now(),
-            'categories_updated_at' => now(),
+        $category = Category::create([
+            'name' => $request->nama,
         ]);
 
-        $category->save();
-
-        return redirect()->route('categories.index')
-                         ->with('status', 'Category created successfully.');
+        return redirect()->route('category.index')->with('status', 'Category created successfully.');
     }
 
     /**
@@ -52,9 +48,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id); // Menemukan kategori berdasarkan ID
 
-        $categories_options = ['PowerPoint', 'Paper', 'Laporan Proyek', 'Lainnya'];
-
-        return view('categories.edit', compact('category', 'categories_options'));
+        return view('admin.category.tambah-category', compact('category'));
     }
 
     /**
@@ -63,17 +57,14 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'categories_name' => 'required|string|in:PowerPoint,Paper,Laporan Proyek,Lainnya',
+            'nama' => 'required|string',
         ]);
 
         $category = Category::findOrFail($id);
-        $category->categories_name = $request->categories_name;
-        $category->categories_updated_at = now();
-
+        $category->name = $request->nama;
         $category->save();
 
-        return redirect()->route('categories.index')
-                         ->with('status', 'Category updated successfully.');
+        return redirect()->route('category.index')->with('status', 'Category updated successfully.');
     }
 
     /**
@@ -84,7 +75,6 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('categories.index')
-                         ->with('status', 'Category deleted successfully.');
+        return redirect()->route('category.index')->with('status', 'Category deleted successfully.');
     }
 }

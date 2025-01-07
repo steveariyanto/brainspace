@@ -17,6 +17,7 @@ class Project extends Model
     protected $fillable = [
         'users_id',
         'categories_id',
+        'project_status_id',
         'projects_title',
         'projects_description',
         'projects_created_at',
@@ -29,7 +30,7 @@ class Project extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'users_id', 'users_id');
+        return $this->belongsTo(User::class, 'users_id');
     }
 
     public function category()
@@ -39,12 +40,12 @@ class Project extends Model
 
     public function file()
     {
-        return $this->hasOne(File::class, 'project_id');
+        return $this->hasOne(File::class, 'project_id', "projects_id");
     }
 
     public function projectStatus()
     {
-        return $this->hasOne(ProjectStatus::class, 'project_id', 'id');
+        return $this->hasOne(ProjectStatus::class, 'id', 'project_status_id');
     }
 
     public function getProjectLinkAttribute() {

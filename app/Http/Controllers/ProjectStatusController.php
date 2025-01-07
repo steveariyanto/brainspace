@@ -23,7 +23,7 @@ class ProjectStatusController extends Controller
      */
     public function create()
     {
-        return view('admin.project-status.create');
+        return view('admin.project-status.tambah-project-status');
     }
 
     /**
@@ -33,14 +33,12 @@ class ProjectStatusController extends Controller
     {
         // Validasi input dari user
         $request->validate([
-            'project_status_name' => 'required|string|max:255',
-            'project_status_updated_at' => 'required|date',
+            'nama' => 'required|string|max:255'
         ]);
 
         // Menyimpan status proyek baru
         $status = new ProjectStatus();
-        $status->project_status_name = $request->project_status_name;
-        $status->project_status_updated_at = $request->project_status_updated_at;
+        $status->name = $request->nama;
         $status->save();
 
         // Redirect ke halaman index dengan pesan sukses
@@ -53,7 +51,7 @@ class ProjectStatusController extends Controller
     public function edit($id)
     {
         $status = ProjectStatus::findOrFail($id); // Menemukan status proyek berdasarkan ID
-        return view('admin.project-status.edit', compact('status'));
+        return view('admin.project-status.tambah-project-status', compact('status'));
     }
 
     /**
@@ -63,14 +61,12 @@ class ProjectStatusController extends Controller
     {
         // Validasi input dari user
         $request->validate([
-            'project_status_name' => 'required|string|max:255',
-            'project_status_updated_at' => 'required|date',
+            'nama' => 'required|string|max:255'
         ]);
 
         // Menemukan status proyek yang akan diupdate
         $status = ProjectStatus::findOrFail($id);
-        $status->project_status_name = $request->project_status_name;
-        $status->project_status_updated_at = $request->project_status_updated_at;
+        $status->name = $request->nama;
         $status->save();
 
         // Redirect ke halaman index dengan pesan sukses

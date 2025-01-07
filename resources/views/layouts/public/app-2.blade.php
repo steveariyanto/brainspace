@@ -13,7 +13,7 @@
 
         @include('layouts.public.nav')
 
-        <div class="overflow-y-auto overflow-x-hidden pt-[220px] w-full h-screen">
+        <div class="overflow-y-auto overflow-x-hidden pt-[80px] w-full h-screen">
             <div class="sm:p-2 p-1">
 
                 @yield('content')

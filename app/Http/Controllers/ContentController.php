@@ -48,6 +48,7 @@ class ContentController extends Controller
         // Buat project baru
         $project = new Project;
         $project->users_id = $userId;
+        $project->project_status_id = 2;
         $project->projects_title = $request->judul;
         $project->projects_description = $request->deskripsi;
         $project->categories_id = $request->kategori;
@@ -100,6 +101,7 @@ class ContentController extends Controller
         // Buat project baru
         $project = Project::find($id);
         $project->projects_title = $request->judul;
+        $project->project_status_id = 2; // Set status project menjadi draft karena perubahan sudah dilakukan
         $project->projects_description = $request->deskripsi;
         $project->categories_id = $request->kategori;
         $project->save();
