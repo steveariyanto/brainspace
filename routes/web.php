@@ -70,10 +70,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/category/hapus/{id}', [CategoryController::class, 'destroy'])->name('category.delete');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home_after_login');
-
-
 // Sertakan rute auth.php untuk autentikasi
 require __DIR__.'/auth.php';

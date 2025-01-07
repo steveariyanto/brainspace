@@ -52,6 +52,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         // Redirect ke halaman home setelah login
-        return redirect()->route('home_after_login')->with('status', 'Registration successful');
+        return redirect()->route('home');
     }
 }
