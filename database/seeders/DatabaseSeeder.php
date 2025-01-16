@@ -34,10 +34,6 @@ class DatabaseSeeder extends Seeder
             'role' => 'user'
         ]);
 
-        Category::create(["name" => "PDF"]);
-        Category::create(["name" => "PPT"]);
-        Category::create(["name" => "DOCX"]);
-
         $this->call([
             CategorySeeder::class,
             ProjectStatusSeeder::class,

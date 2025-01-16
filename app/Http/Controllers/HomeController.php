@@ -8,9 +8,14 @@ use App\Models\Project;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
+        $search = $request->query("search");
         $data = [];
-        $contents = Project::whereNot('project_status_id', 3)->get();
+        $contents = Project::where('project_status_id', 1)
+            ->when($search != "", function ($data) use ($search) {
+                $data->where("projects_title", "LIKE", "%".$search."$");
+            })
+            ->get();
 
         foreach($contents as $content) {
             $key = array_search($content->categories_id, array_column($data, 'id'));

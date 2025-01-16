@@ -13,6 +13,7 @@ class CreateFilesTable extends Migration
             $table->bigIncrements('id'); // Kunci utama
             $table->unsignedBigInteger('project_id'); // ID proyek yang terkait
             $table->string('file_path'); // Path file
+            $table->string('file_public_id'); // Path file
             $table->timestamps(); // Timestamp untuk created_at dan updated_at
 
             // Definisi kunci asing

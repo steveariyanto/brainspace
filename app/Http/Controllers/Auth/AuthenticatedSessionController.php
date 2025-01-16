@@ -31,10 +31,8 @@ class AuthenticatedSessionController extends Controller
 
         // Cek kredensial login
         if (Auth::attempt($request->only('email', 'password'))) {
-            // Jika login berhasil, arahkan ke halaman home
-
-        //     if(auth()->role == "admin") return redirect()->intended("/dashboard");
-        //     return redirect()->intended('/home'); // Mengarahkan ke halaman home setelah login
+            if(auth()->user()->role === "admin") return redirect()->intended("/dashboard");
+            return redirect()->intended('/'); // Mengarahkan ke halaman home setelah login
         }
 
         // Jika login gagal

@@ -33,7 +33,7 @@
                         <tr>
                             <td class="py-2 px-4 text-center">{{ $key + 1 }}</td>
                             <td class="py-2 px-4 text-center">{{ $item->projects_title }}</td>
-                            <td class="py-2 px-4 text-center">{{ $item->category->categories_name }}</td>
+                            <td class="py-2 px-4 text-center">{{ $item->category->name }}</td>
                             <td class="py-2 px-4 text-center">{{ $item->projects_description }}</td>
                             <td class="py-2 px-4 text-center">
                                 @if($item->project_link)

@@ -13,12 +13,14 @@ class FileSeeder extends Seeder
             [
                 'project_id' => 1,
                 'file_path' => 'files/project-overview.pdf',
+                "file_public_id" => "2",
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'project_id' => 2,
                 'file_path' => 'files/app-design.png',
+                "file_public_id" => "2",
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

@@ -56,11 +56,12 @@ class ContentController extends Controller
 
         // Proses untuk menyimpan file
         if ($request->hasFile('proyek')) {
-            $path = Storage::disk("public")->put("proyek", $request->file("proyek"));
+            $fileUrl = cloudinary()->upload($request->file('proyek')->getRealPath());
 
             // Buat file baru dan simpan dengan project_id
             $file = new File;
-            $file->file_path = $path;
+            $file->file_path = $fileUrl->getSecurePath();
+            $file->file_public_id = $fileUrl->getPublicId();
             $file->project_id = $project->projects_id; // Menyimpan ID proyek yang baru dibuat
             $file->save();
         }

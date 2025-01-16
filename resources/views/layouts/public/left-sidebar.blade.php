@@ -25,7 +25,7 @@
 
          <!-- Daftar Proyek -->
          <li>
-             <a href="/daftar-konten"
+             <a href="{{ auth()->user()->role == 'user' ? '/daftar-konten' : '/project-approval' }}"
                  class="flex items-center px-4 py-2 hover:bg-blue-700 hover:text-gray-100 transition duration-200">
                  <i class="fas fa-clipboard-list mr-4 text-white text-lg"></i>
                  <span>Daftar Proyek</span>
@@ -40,5 +40,14 @@
                  <span>Notifikasi</span>
              </a>
          </li>
+
+        @auth
+            <li>
+                <a href="/profile" class="flex items-center px-4 py-2 hover:bg-blue-700 hover:text-gray-100 transition duration-200">
+                    <i class="fas fa-user mr-4 text-white text-lg"></i>
+                    <span>Profil</span>
+                </a>
+            </li>
+        @endauth
      </ul>
  </div>

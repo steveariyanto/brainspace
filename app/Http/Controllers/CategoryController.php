@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // if(auth()->user()->role != "admin") return redirect("/");
+        if(auth()->user()->role == "user") return redirect()->intended(("/"));
+
         $categories = Category::all(); // Mengambil semua kategori
 
         return view('admin.category.index', compact('categories'));

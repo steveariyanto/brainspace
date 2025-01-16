@@ -49,6 +49,6 @@ class Project extends Model
     }
 
     public function getProjectLinkAttribute() {
-        return ($this->file) ? url("/")."/storage/{$this->file->file_path}" : null;
+        return $this->file?->file_path;
     }
 }

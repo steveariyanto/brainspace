@@ -19,6 +19,7 @@
                         <th>No</th>
                         <th>Nama Pengaju</th>
                         <th>Judul Project</th>
+                        <th>Kategori</th>
                         <th>Deskripsi Project</th>
                         <th>File</th>
                         <th>Status</th>
@@ -31,6 +32,7 @@
                         <td>{{ $index + 1 }}</td>
                         <td>{{ $project->user?->name }}</td>
                         <td>{{ $project->projects_title }}</td>
+                        <td>{{ $project?->category?->name }}</td>
                         <td>{{ $project->projects_description }}</td>
                         <td>
                             @if($project->file)

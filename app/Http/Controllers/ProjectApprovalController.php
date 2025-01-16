@@ -10,6 +10,8 @@ use App\Models\Project;
 class ProjectApprovalController extends Controller
 {
     public function index() {
+        if(auth()->user()->role == "user") return redirect()->intended(("/"));
+
         $projects = Project::with(['user', 'category', 'projectStatus', 'file'])->get();
 
         return view("admin.project-approval.index", compact('projects'));
