@@ -12,7 +12,7 @@
             <div class="flex justify-between items-center w-full">
 
                 <!-- Topbar Search -->
-                <form class="flex items-center w-[80%]">
+                <div class="flex items-center w-[80%]">
                     <div class="input-group w-full">
                         <input type="text" class="form-control bg-light border-400 small rounded-pill" id="search"
                             placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -22,7 +22,7 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </div>
 
                 <!-- User Info and Logout -->
                 <div class="flex items-center space-x-4">

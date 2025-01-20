@@ -25,7 +25,7 @@
 
          <!-- Daftar Proyek -->
          <li>
-             <a href="{{ auth()->user()->role == 'user' ? '/daftar-konten' : '/project-approval' }}"
+             <a href="{{ auth()?->user()?->role == 'admin' ? '/project-approval' : '/daftar-konten' }}"
                  class="flex items-center px-4 py-2 hover:bg-blue-700 hover:text-gray-100 transition duration-200">
                  <i class="fas fa-clipboard-list mr-4 text-white text-lg"></i>
                  <span>Daftar Proyek</span>

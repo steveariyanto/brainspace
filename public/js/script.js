@@ -53,8 +53,9 @@
     e.preventDefault();
   });
 
-  $("#search_button").on('click', function(e) {
-    alert("coba")
+  $(document).on('click', '#search_button', function(e) {
+    const search = document.getElementById('search');
+    location.href = "/?search=" + search.value;
   })
 
 })(jQuery); // End of use strict

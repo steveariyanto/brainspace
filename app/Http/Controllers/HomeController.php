@@ -13,7 +13,7 @@ class HomeController extends Controller
         $data = [];
         $contents = Project::where('project_status_id', 1)
             ->when($search != "", function ($data) use ($search) {
-                $data->where("projects_title", "LIKE", "%".$search."$");
+                $data->where("projects_title", "LIKE", "%".$search."%");
             })
             ->get();
 
