@@ -14,7 +14,7 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'name' => 'PPT',
+            'name' => 'Proyek Presentasi',
         ]);
         Category::create([
             'name' => 'Paper',

@@ -27,27 +27,31 @@
                 Kembali
             </a>
 
+        <!-- Kotak Konten dengan Border Putih -->
+        <div class="bg-blue-100 p-7 rounded-lg shadow-lg border border-gray-800">
+            <h2 class="text-xl font-semibold text-blue-500 mb-3">Form Tambah Konten</h2>
+
             <div class="mx-auto">
                 <form method="POST" action="{{ $route }}" enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="col-span-1">
-                            <label for="judul" class="block text-sm font-medium text-gray-700">Judul Proyek</label>
+                            <label for="judul" class="block text-sm font-medium text-gray-900">Judul Proyek</label>
                             <input name="judul"
-                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                class="mt-1 block w-full border-7 border-blue-800 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 type="text" placeholder="Tulis Judulmu disini"
                                 value="{{ $project->projects_title ?? '' }}">
                         </div>
 
                         <div class="col-span-1">
-                            <label for="deskripsi" class="block text-sm font-medium text-gray-700">Deskripsi Proyek</label>
+                            <label for="deskripsi" class="block text-sm font-medium text-gray-900">Deskripsi Proyek</label>
                             <textarea
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 name="deskripsi" placeholder="Tulis deskripsi disini">{{ $project->projects_description ?? '' }}</textarea>
                         </div>
 
                         <div class="col-span-1">
-                            <label class="block text-sm font-medium text-gray-700" for="kategori">Kategori</label>
+                            <label class="block text-sm font-medium text-gray-900" for="kategori">Kategori</label>
                             <select id="kategori" name="kategori"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 required>
@@ -58,14 +62,14 @@
                         </div>
 
                         <div class="col-span-1">
-                            <label class="block text-sm font-medium text-gray-700" for="proyek">Unggah Konten</label>
+                            <label class="block text-sm font-medium text-gray-900" for="proyek">Unggah Konten</label>
                             <input type="file" name="proyek" id="proyek"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                                 accept="" onchange="previewFile()">
 
                             <!-- Area untuk menampilkan review -->
                             <div id="file-preview" class="mt-4 hidden">
-                                <label class="block text-sm font-medium text-gray-700">Review File:</label>
+                                <label class="block text-sm font-medium text-gray-900">Review File:</label>
                                 <div id="file-info" class="mt-2 p-4 border border-gray-300 rounded-md bg-gray-100">
                                     <!-- Info file akan ditampilkan di sini -->
                                 </div>
