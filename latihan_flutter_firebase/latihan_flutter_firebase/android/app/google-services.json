@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1029585125202",
+    "project_id": "latihan-flutter-firebase-bf230",
+    "storage_bucket": "latihan-flutter-firebase-bf230.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029585125202:android:78e5296d2322bf29ea848b",
+        "android_client_info": {
+          "package_name": "com.example.latihan_flutter_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABboWB18bRMcRUV95gzzN0qO6g-f24Y0w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
